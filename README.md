@@ -1,5 +1,6 @@
 # Microscope
 Meteor application for the Everything Web minor.
+-----------------------------------------------------
 
 ### Assignment 3: *Find a data resource for your project and describe its limitations*
 
