@@ -34,8 +34,8 @@ Amsterdam is top rated when it comes to the amount of cyclers. Everyday thousand
 The MVP is a real time meteor application. It consists out of a map with marked locations of bicycle storages. These marks are indicated with a colored bicycle-icon, based on the number of available spots in the bicycle storage. More information (such as an address, the name of the storage, possible costs etc.) on the storage will appear when clicking on these marks. The number of available spots in the  storage can be updated through an admin panel.
 
 ### Reactiveness
-- Map with storages with colorchange marks (green, orange, red) for storage availabiity
-- Real time notifications of free spots
+- Storage marks wil change of color based on free spots (green, orange, red)
+- When "following" storages, a notification will be send to the user if a spot is available
 
 ### Wishlist
 - Admin panel
