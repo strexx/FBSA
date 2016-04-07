@@ -11,7 +11,7 @@ http://open.datapunt.amsterdam.nl/ivv/parkeren/locaties.json.
 The API gives information about the locations of the storages, but it doesn't give information about the amount of bicycles that are stalled. For this meteor project prototype I therefore need to fake this information. Another limitation is that the API doesn't tell when it gets updated. The last time it has been modified is 2 months ago.
 
 #### Data source advantages
-The Gemeente Amsterdam is a trusted source for data resources.
+The Gemeente Amsterdam is a reliable source for data resources.
 
 #### Information
 
