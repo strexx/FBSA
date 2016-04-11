@@ -1,5 +1,7 @@
 # Free Bike Spots Amsterdam
 
+## Week 1
+
 #### Assignment 3: Find a data resource for your project and describe its limitations
 
 For this project I found a data resource for secured bicycle storages in Amsterdam. This resource can be found at:
@@ -48,3 +50,11 @@ The MVP is a real time meteor application. It consists out of a map with marked 
 - Map with storages
 - Tooltip for storages with information
 - Notification when a free spot is available
+
+## Week 2
+
+#### Assignment 1: Structure and organize files and directories according to Meteor standards
+
+To fully use the module system and ensure that my code only runs when I ask it to, it's recommended that all of the application code should be placed inside the imports/ directory. This means that the Meteor build system will only bundle and include that file if it is referenced from another file using an import (also called “lazy evaluation or loading”).
+
+See: [http://guide.meteor.com/structure.html]
