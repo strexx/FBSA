@@ -1,4 +1,4 @@
-# Microscope
+# Free Bike Spots Amsterdam
 
 #### Assignment 3: Find a data resource for your project and describe its limitations
 
