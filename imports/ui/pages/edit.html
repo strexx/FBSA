@@ -1,0 +1,45 @@
+<!-- EDIT-->
+<template name="edit">
+<!-- // -->
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {{ #if loggedIn }}
+                	<li class="active"><a href="#">Storages</a></li>
+                {{ /if }}
+            </ul>
+            {{> loginButtons}}
+        </nav>
+    </header>
+    <section class="storage">
+        <header>
+        {{#if storage}}
+            {{#with storage}}
+                <h1>{{ title }}<img src="../{{ markerIcon }}" alt="Free bike spots"/></h1>                
+                <div class="info">
+                    <ul>
+                        <li>Address: {{ adres }}</li>
+                        <li>Postal: {{ postcode }}</li>
+                        <li>Total spots: {{ totalSpots }}</li>
+                        <li>Occupancy: {{ occupancy }}</li>
+                        {{#if freespots}}
+                            {{#with freespots}}
+                                <li>Free spots: {{ freespots }}</li>
+                            {{/with}}
+                        {{/if}}
+                    </ul>
+                    <hr>                
+                </div>
+                <h1>Edit</h1>
+                <form action="#" class="modify" method="POST">
+                    <label for="freespots">Occupancy:</label>
+                    <input id="freespots" type="text" name="occupancy" value="{{ occupancy }}">
+                    <br />
+                    <input id="submit" type="submit" name="submit" value="Submit">
+                </form>
+            {{/with}}
+        {{/if}}
+        </header>
+    </section>
+</template>

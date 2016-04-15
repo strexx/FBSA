@@ -1,0 +1,23 @@
+<template name="storage">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {{ #if loggedIn }}
+                	<li class="active"><a href="#">Storages</a></li>
+                {{ /if }}
+            </ul>
+            {{> loginButtons}}
+        </nav>
+    </header>
+    <section class="storages">
+        <header>
+            <h1>My storages</h1>
+        </header>
+		<ul>
+			{{ #each storages }}
+				<li><a href="storage/B8Fx5qdp3syTZYbwv">{{ title }}</a></li>
+			{{ /each }}
+		</ul>
+    </section>
+</template>

@@ -1,0 +1,16 @@
+<template name="home">
+    <header>
+        <nav>
+            <ul>
+                <li class="active"><a href="/">Home</a></li>
+                {{ #if loggedIn }}
+                	<li><a href="storage">Storages</a></li>
+                {{ /if }}
+            </ul>
+            {{> loginButtons}}
+        </nav>
+    </header>
+    <div class="map-container">
+        {{> googleMap name="map" options=mapOptions}}
+    </div>
+</template>

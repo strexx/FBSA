@@ -1,0 +1,114 @@
+/* CSS Stylesheet */
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    font-family: "Open Sans", sans-serif;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+
+/* Nav */
+
+nav {
+    background: red;
+    padding: 1em 0;
+    border-bottom: 1px solid #e8e8e8;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 1em;
+}
+
+nav ul li a {
+    color: white;
+    font-size: 1.4em;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    color: black;
+    text-decoration: none;
+}
+
+nav ul li.active a {
+    text-decoration: underline;
+}
+
+
+/* Login */
+
+#login-buttons {
+    margin-left: 1em;
+    margin-top: 1em;
+}
+
+#login-buttons .login-link-text {
+    color: white;
+}
+
+
+/* Storages */
+
+.storages {
+    margin-top: 2em;
+    margin-left: 1em;
+}
+
+.storages h1 {
+    border-bottom: 2px solid black;
+    padding-bottom: .5em;
+    margin-bottom: .5em;
+}
+
+.storages ul li {
+    margin-bottom: .5em;
+}
+
+.storages ul li a {
+    color: black;
+}
+
+
+/* Storage edit page */
+
+.storage {
+    margin-left: 1em;
+}
+
+.storage h1 {
+    font-size: 1.5em;
+}
+
+.storage img {
+    margin-left: .5em;
+}
+
+.info {
+    display: block;
+}
+
+.info li {
+    margin-bottom: 1em;
+}
+
+
+/* Map */
+
+.map-container {
+    width: 100%;
+    max-width: 100%;
+    height: 800px;
+}
