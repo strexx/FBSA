@@ -1,5 +1,6 @@
 import './edit.html';
 
+// Userid: cPR5LgqHfEGwEzyC8
 //console.log(Markers.find({}, {sort: {userId: "3nezGngQ9nWgEDJn4g"}}));
 
 //Markers.update({_id: "B8Fx5qdp3syTZYbwv"}, {$set: {occupancy: 250, totalSpots: 520}});
@@ -40,6 +41,8 @@ Template.edit.events({
         var storage = Markers.findOne({ _id: storageId });
         var percentage = storage.occupancy / storage.totalSpots * 100;
         var icon;
+
+        console.log(percentage);
 
         if (percentage > 70) {
             icon = 'images/red.png';
