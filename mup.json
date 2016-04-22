@@ -3,10 +3,10 @@
   "servers": [
     {
       "host": "188.166.21.107",
-      "username": "root",
-      "password": ""
+      "username": "fons",
+      "password": "dleqbdxb",
       // or pem file (ssh based authentication)
-      // "pem": "~/.ssh/id_rsa"
+      "pem": "~/.ssh/id_rsa"
     }
   ],
 

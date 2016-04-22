@@ -26,34 +26,36 @@ Template.home.helpers({
 });
 
 function setMarkers(map) {
-    var storagesMarkers = Markers.find().fetch(),
-        mapMarkers = [],
-        infowindows = [],
-        infowindow = null;
+    Meteor.call("getStorages", function(error, items) {
+        var storagesMarkers = items,
+            mapMarkers = [],
+            infowindows = [],
+            infowindow = null;
 
-    storagesMarkers.forEach(function(storage, index) {
+        storagesMarkers.forEach(function(storage, index) {
 
-        var pos = new google.maps.LatLng(storage.lat, storage.lng);
+            var pos = new google.maps.LatLng(storage.lat, storage.lng);
 
-        mapMarkers[index] = new google.maps.Marker({
-            position: pos,
-            map: map.instance,
-            adres: storage.adres,
-            title: storage.title,
-            icon: storage.markerIcon,
-            id: storage._id
+            mapMarkers[index] = new google.maps.Marker({
+                position: pos,
+                map: map.instance,
+                adres: storage.adres,
+                title: storage.title,
+                icon: storage.markerIcon,
+                id: storage._id
+            });
+            var infowindow = new google.maps.InfoWindow({
+                content: storage.title
+            });
+
+            google.maps.event.addListener(mapMarkers[index], 'click', function() {
+                // console.log(Infowindow.open)
+                // console.log(map)
+                // console.log(mapMarkers[index]);
+                infowindow.open(map, this);
+                //console.log(this);
+            })
         });
-        var infowindow = new google.maps.InfoWindow({
-            content: storage.title
-        });
-
-        google.maps.event.addListener(mapMarkers[index], 'click', function() {
-            // console.log(Infowindow.open)
-            // console.log(map)
-            // console.log(mapMarkers[index]);
-            infowindow.open(map, this);
-            console.log(this);
-        })
     });
 }
 
@@ -64,9 +66,47 @@ Template.home.onCreated(function() {
         setMarkers(map);
 
         Markers.find().observe({
+            added: function(document) {
+                if (document.lat && document.lng) {
+                    var newPos = new google.maps.LatLng(document.lat, document.lng);
+                    var marker = new google.maps.Marker({
+                        position: newPos,
+                        map: map.instance,
+                        adres: document.adres,
+                        title: document.title,
+                        icon: document.markerIcon,
+                        id: document._id
+                    });
+                    console.log("Added record");
+                }
+            },
             changed: function(newDocument, oldDocument) {
-                setMarkers(map);
-                console.log(newDocument);
+                var newPos = new google.maps.LatLng(newDocument.lat, newDocument.lng);
+                var marker = new google.maps.Marker({
+                    position: newPos,
+                    map: map.instance,
+                    adres: newDocument.adres,
+                    title: newDocument.title,
+                    icon: newDocument.markerIcon,
+                    id: newDocument._id
+                });
+                console.log("Updated record");
+            },
+            removed: function(oldDocument) {
+
+                var oldPos = new google.maps.LatLng(oldDocument.lat, oldDocument.lng);
+                var marker = new google.maps.Marker({
+                    position: oldPos,
+                    id: oldDocument._id
+                });
+
+                marker.setMap(null);
+                delete marker;
+
+                // Dirty hack, needs to be edited
+                location.reload();
+
+                console.log("Deleted record " + oldDocument._id);
             }
         });
     });

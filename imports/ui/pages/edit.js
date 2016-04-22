@@ -34,26 +34,24 @@ Template.edit.events({
         const occupancy = target.occupancy.value;
         var storageId = FlowRouter.getParam("id");
 
-        Markers.update({ _id: storageId }, {
-            $set: { occupancy: occupancy }
+        Meteor.call('updateOccupancy', storageId, occupancy);
+
+        Meteor.call('findStorage', storageId, function(error, item) {            
+
+            var storage = item;
+            var percentage = storage.occupancy / storage.totalSpots * 100;
+            var icon;
+
+            if (percentage > 70) {
+                icon = 'images/red.png';
+            } else if (percentage > 30 && percentage < 70) {
+                icon = 'images/orange.png';
+            } else {
+                icon = 'images/green.png';
+            }
+
+            Meteor.call('updateMarkerIcon', storageId, icon);
         });
 
-        var storage = Markers.findOne({ _id: storageId });
-        var percentage = storage.occupancy / storage.totalSpots * 100;
-        var icon;
-
-        console.log(percentage);
-
-        if (percentage > 70) {
-            icon = 'images/red.png';
-        } else if (percentage > 30 && percentage < 70) {
-            icon = 'images/orange.png';
-        } else {
-            icon = 'images/green.png';
-        }
-
-        Markers.update({ _id: storageId }, {
-            $set: { markerIcon: icon }
-        });
     }
 });

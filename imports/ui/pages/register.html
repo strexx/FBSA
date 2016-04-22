@@ -1,0 +1,46 @@
+<template name="register">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Home</a></li>
+                {{ #if loggedIn }}
+                <li class="active"><a href="register">Register storage</a></li>
+                <li><a href="storage">Storages</a></li>
+                {{ /if }}
+            </ul>
+            {{> loginButtons}}
+        </nav>
+    </header>
+    <section class="storage">
+        <header>
+            <h1>Register storage</h1>
+            <hr>
+            <div class="form-style-2">
+                <form action="#" method="post" class="register">
+                    <label for="title"><span>Title <span class="required">*</span></span>
+                        <input type="text" class="input-field" name="title" value="" />
+                    </label>
+                    <label for="address"><span>Address <span class="required">*</span></span>
+                        <input type="text" class="input-field" name="address" value="" />
+                    </label>
+                    <label for="postal"><span>Postal <span class="required">*</span></span>
+                        <input type="text" class="input-field" name="postal" value="" />
+                    </label>
+                    <label><span>Coordinates</span>
+                        <input type="text" class="tel-number-field" name="lat" value="" placeholder="latitude" />-
+                        <input type="text" class="tel-number-field" name="lng" value="" placeholder="longitude" />
+                    </label>
+                    <label for="total_capacity"><span>Total capacity<span class="required">*</span></span>
+                        <input type="text" class="input-field form-total-capacity" name="total_capacity" value="" />
+                    </label>
+                    <label for="occupancy"><span>Current occupancy <span class="required">*</span></span>
+                        <input type="text" class="input-field form-occupancy" name="occupancy" value="" />
+                    </label>
+                    <label><span>&nbsp;</span>
+                        <input type="submit" value="Submit" />
+                    </label>
+                </form>
+            </div>
+        </header>
+    </section>
+</template>

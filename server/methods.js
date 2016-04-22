@@ -2,6 +2,32 @@ Meteor.methods({
     getApiData: function() {
         this.unblock();
         return Meteor.http.call("GET", "http://open.datapunt.amsterdam.nl/ivv/parkeren/locaties.json");
+    },
+    getAddress: function(url) {
+        this.unblock();
+        return Meteor.http.call("GET", url);
+    },
+    updateOccupancy: function(storageId, occupancy) {
+    	Markers.update({ _id: storageId }, {
+    		 $set: { occupancy: occupancy }
+    	});
+    },
+    updateMarkerIcon: function(storageId, icon) {
+    	Markers.update({ _id: storageId }, {
+            $set: { markerIcon: icon }
+        });
+    },
+    findStorage: function(storageId) {
+    	return Markers.findOne({ _id: storageId });
+    },
+    getStorages: function() {
+        return Markers.find().fetch();
+    },
+    addStorage: function(storage) {
+        Markers.insert(storage);
+    },
+    removeStorage: function(storageId) {
+        Markers.remove(storageId);
     }
 });
 

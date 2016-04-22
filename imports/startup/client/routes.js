@@ -8,8 +8,10 @@ import '../../ui/layouts/layout.js';
 import '../../ui/pages/home.js';
 import '../../ui/pages/storage.js';
 import '../../ui/pages/edit.js';
+import '../../ui/pages/register.js';
 
-// Define routes with FlowRouter !
+/* HOME */
+
 FlowRouter.route('/', {
   name: 'FBSA.home',
   subscriptions: function() {
@@ -20,10 +22,11 @@ FlowRouter.route('/', {
   },
 });
 
+/* STORAGES */
+
 FlowRouter.route('/storage', {
   name: 'FBSA.storage',
   subscriptions: function() {
-        this.register('storages', Meteor.subscribe('storages'));
         this.register('markers', Meteor.subscribe('markers'));
     },
   action() {
@@ -34,11 +37,22 @@ FlowRouter.route('/storage', {
 FlowRouter.route('/storage/:id', {
   name: 'FBSA.edit',
   subscriptions: function() {
-        this.register('storages', Meteor.subscribe('storages'));
         this.register('markers', Meteor.subscribe('markers'));
     },
   action() {
     BlazeLayout.render('FBSA_layout', { main: 'edit' });
+  },
+});
+
+/* REGISTER STORAGE */
+
+FlowRouter.route('/register', {
+  name: 'FBSA.register',
+  subscriptions: function() {
+        this.register('markers', Meteor.subscribe('markers'));
+    },
+  action() {
+    BlazeLayout.render('FBSA_layout', { main: 'register' });
   },
 });
 

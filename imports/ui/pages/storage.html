@@ -4,7 +4,8 @@
             <ul>
                 <li><a href="/">Home</a></li>
                 {{ #if loggedIn }}
-                	<li class="active"><a href="#">Storages</a></li>
+                    <li><a href="register">Register storage</a></li>
+                	<li class="active"><a href="storage">Storages</a></li>
                 {{ /if }}
             </ul>
             {{> loginButtons}}
@@ -16,7 +17,10 @@
         </header>
 		<ul>
 			{{ #each storages }}
-				<li><a href="storage/uowv6NRi4C8rPj8hg">{{ title }}</a></li>
+				<li>
+                    <a href="storage/{{ _id }}">{{ title }}</a>
+                    <button class="delete" data-id="{{ _id }}">X</button
+                ></li>
 			{{ /each }}
 		</ul>
     </section>

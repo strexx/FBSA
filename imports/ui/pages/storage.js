@@ -19,3 +19,15 @@ Template.storage.helpers({
         }
     }
 });
+
+Template.storage.events({
+    'click .delete': function(e) {
+        var result = confirm("You sure you want to delete?");
+        if(result) {
+            var storageId = e.target.getAttribute("data-id");
+            Meteor.call("removeStorage", storageId);
+        } else {
+            return false;
+        }     
+    }
+});
