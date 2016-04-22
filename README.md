@@ -58,3 +58,9 @@ The MVP is a real time meteor application. It consists out of a map with marked 
 To fully use the module system and ensure that my code only runs when I ask it to, it's recommended that all of the application code should be placed inside the imports/ directory. This means that the Meteor build system will only bundle and include that file if it is referenced from another file using an import (also called “lazy evaluation or loading”).
 
 See: http://guide.meteor.com/structure.html
+
+## Week 3 (Final)
+
+#### Final product
+
+![map](readme/map.png)
