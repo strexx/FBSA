@@ -2,3 +2,13 @@
 fbsa_deploy/mup.json
 
 fbsa_deploy/settings.json
+
+visudo
+
+my-meteor-deployment/mup.json
+
+my-meteor-deployment/settings.json
+
+mup.json
+
+mup.json
