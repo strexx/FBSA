@@ -1,11 +1,14 @@
 <template name="register">
     <header>
+        <div class="header_bg">
+            <h1 class="header_text"><span>FBSA</span> - Free Bikespot Storage Amsterdam -</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
                 {{ #if loggedIn }}
                 <li class="active"><a href="register">Register storage</a></li>
-                <li><a href="storage">Storages</a></li>
+                <li><a href="storage">My Storages</a></li>
                 {{ /if }}
             </ul>
             {{> loginButtons}}
@@ -26,7 +29,7 @@
                     <label for="postal"><span>Postal <span class="required">*</span></span>
                         <input type="text" class="input-field" name="postal" value="" />
                     </label>
-                    <label><span>Coordinates</span>
+                    <label><span>Coordinates<span class="required">*</span></span>
                         <input type="text" class="tel-number-field" name="lat" value="" placeholder="latitude" />-
                         <input type="text" class="tel-number-field" name="lng" value="" placeholder="longitude" />
                     </label>

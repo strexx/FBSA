@@ -2,12 +2,15 @@
 <template name="edit">
 <!-- // -->
     <header>
+        <div class="header_bg">
+            <h1 class="header_text"><span>FBSA</span> - Free Bikespot Storage Amsterdam -</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
                 <li><a href="../register">Register storage</a></li>
                 {{ #if loggedIn }}
-                	<li class="active"><a href="../storage">Storages</a></li>
+                	<li class="active"><a href="../storage">My Storages</a></li>
                 {{ /if }}
             </ul>
             {{> loginButtons}}
@@ -17,22 +20,23 @@
         <header>
         {{#if storage}}
             {{#with storage}}
-                <h1>{{ title }}<img src="../{{ markerIcon }}" alt="Free bike spots"/></h1>                
+                <h1>{{ title }}<img src="../{{ markerIcon }}" alt="Free bike spots"/></h1>
+                <hr>
                 <div class="info">
                     <ul>
-                        <li>Address: {{ adres }}</li>
-                        <li>Postal: {{ postcode }}</li>
-                        <li>Total spots: {{ totalSpots }}</li>
-                        <li>Occupancy: {{ occupancy }}</li>
+                        <li><b>Address:</b> {{ adres }}</li>
+                        <li><b>Postal:</b> {{ postcode }}</li>
+                        <li><b>Total spots:</b> {{ totalSpots }}</li>
+                        <li><b>Occupancy:</b> {{ occupancy }}</li>
                         {{#if freespots}}
                             {{#with freespots}}
-                                <li>Free spots: {{ freespots }}</li>
+                                <li><b>Free spots:</b> {{ freespots }}</li>
                             {{/with}}
                         {{/if}}
                     </ul>
                     <hr>                
                 </div>
-                <h1>Edit</h1>
+                <h2>Edit</h2>
                 <form action="#" class="modify" method="POST">
                     <label for="freespots">Occupancy:</label>
                     <input id="freespots" type="text" name="occupancy" value="{{ occupancy }}">

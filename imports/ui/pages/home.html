@@ -1,11 +1,23 @@
 <template name="home">
     <header>
-        <nav>
+        <div class="header_bg">
+            <h1 class="header_text"><span>FBSA</span> - Free Bikespot Storage Amsterdam -</h1>
+        </div>
+
+        <div class="messageBox">
+            <button class="hideBox">X</button>
+            <h1>Welcome to FBSA</h1>
+            <p>
+                Amsterdam is top rated when it comes to the amount of cyclers. Everyday thousands of people cross the streets with their bicycles to go to work or school. They need a place to store their bike nearby these destinations. This app shows a clear view of the (nearby) locations of these storages and their directions.
+            </p>
+        </div>
+
+        <nav class="no-margin">
             <ul>
                 <li class="active"><a href="/">Home</a></li>
                 {{ #if loggedIn }}
                     <li><a href="register">Register storage</a></li>
-                	<li><a href="storage">Storages</a></li>
+                	<li><a href="storage">My Storages</a></li>
                 {{ /if }}
             </ul>
             {{> loginButtons}}

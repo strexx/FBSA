@@ -1,5 +1,27 @@
 import './home.html';
 
+//Meteor.call("checkUpdates");
+
+if (Meteor.users.find().count() === 0) {
+    // Insert test user for online testing
+    var testUser = {
+        userId: "cPR5LgqHfEGwEzdC8",
+        username: 'test@test.nl',
+        password: '123456'
+    };
+
+    // Create user - package: accounts-password
+    Accounts.createUser(testUser, function(err) {
+      if (err) {
+        console.log(err);
+      }
+      else {
+        console.log('User ' + testUser.username + ' added');
+        Meteor.logout();
+      }
+    });
+}
+
 GoogleMaps.load();
 
 Template.home.helpers({
@@ -25,6 +47,13 @@ Template.home.helpers({
     }
 });
 
+Template.home.events({
+    'click .hideBox': function(e) {
+        var box = document.querySelector(".messageBox");
+        box.classList.add("hide");
+    }
+});
+
 function setMarkers(map) {
     Meteor.call("getStorages", function(error, items) {
         var storagesMarkers = items,
@@ -44,6 +73,7 @@ function setMarkers(map) {
                 icon: storage.markerIcon,
                 id: storage._id
             });
+                        
             var infowindow = new google.maps.InfoWindow({
                 content: storage.title
             });
@@ -51,8 +81,8 @@ function setMarkers(map) {
             google.maps.event.addListener(mapMarkers[index], 'click', function() {
                 // console.log(Infowindow.open)
                 // console.log(map)
-                // console.log(mapMarkers[index]);
-                infowindow.open(map, this);
+                //console.log(mapMarkers[index]);
+                //infowindow.open(map, mapMarkers[index]);
                 //console.log(this);
             })
         });

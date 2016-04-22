@@ -1,11 +1,14 @@
 <template name="storage">
     <header>
+        <div class="header_bg">
+            <h1 class="header_text"><span>FBSA</span> - Free Bikespot Storage Amsterdam -</h1>
+        </div>
         <nav>
             <ul>
                 <li><a href="/">Home</a></li>
                 {{ #if loggedIn }}
                     <li><a href="register">Register storage</a></li>
-                	<li class="active"><a href="storage">Storages</a></li>
+                	<li class="active"><a href="storage">My Storages</a></li>
                 {{ /if }}
             </ul>
             {{> loginButtons}}
@@ -14,12 +17,14 @@
     <section class="storages">
         <header>
             <h1>My storages</h1>
+            <hr>
         </header>
 		<ul>
 			{{ #each storages }}
 				<li>
                     <a href="storage/{{ _id }}">{{ title }}</a>
-                    <button class="delete" data-id="{{ _id }}">X</button
+                    <a class="edit" href="storage/{{ _id }}">Edit</a>
+                    <button class="delete" data-id="{{ _id }}">Remove</button
                 ></li>
 			{{ /each }}
 		</ul>

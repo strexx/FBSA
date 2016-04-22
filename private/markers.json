@@ -1,0 +1,17 @@
+{
+  "marker":
+  [
+    { 
+    	"_id": "uowv6NRi4C8rCj8h4",
+    	"adres": "Kattenburgerplein 1",
+    	"lat": 52.371703,
+    	"lng": 4.914807,
+    	"markerIcon": "images/red",
+    	"occupancy": 380,
+    	"postcode": "1018 KK",
+    	"title": "Scheepsvaart Museum Fietsenstalling",
+    	"totalSpots": 500,
+    	"userId": "cPR5LgqHfEGwEzdC8",
+    }
+  ]
+}

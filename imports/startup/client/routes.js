@@ -15,7 +15,8 @@ import '../../ui/pages/register.js';
 FlowRouter.route('/', {
   name: 'FBSA.home',
   subscriptions: function() {
-        this.register('markers', Meteor.subscribe('markers'));
+        this.register('markers', Meteor.subscribe('markers')),
+        this.register('users', Meteor.subscribe('users'))
     },
   action() {
     BlazeLayout.render('FBSA_layout', { main: 'home' });
