@@ -63,6 +63,20 @@ See: http://guide.meteor.com/structure.html
 
 #### Final product
 
-The final product is available at: [fbsa.alleenmedia.nl](http://37.139.5.136/)
+The final product is available at: [Free Bikespot Storages Amsterdam](http://37.139.5.136/)
+
+#### User Interface
+
+After building all of my application logic and structure I've asked my brother to test the application with a basic UI.
+This UI wasn't user friendly at all, because only I could understand what this application really is.
+
+![usertest](readme/usertest.png)
+
+**Here is a list of things I've added after doing this user test.**
+
+- Added introduction text the first time you visit the app
+- Added header information with logo and slogan to clarify meaning
+- Styled menu items so they are better visible
+- Added more space for fieldset in "Register Storage" and "Edit storage" page
 
 ![map](readme/map.png)
